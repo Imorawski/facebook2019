@@ -6,11 +6,11 @@
     <div class="card-header">
         <img
             [src]="post.author.avatarUrl"
-            class="float-left mr-3"
+            class="avatar float-left mr-3"
             alt
         >
         <h4>{{ post.author.name }}</h4>
-        <p>{{ post.createdTime }}</p>
+        <p>{{ post.createdTime | myDate }}</p>
     </div>
     <img
         [src]="post.images[0]"
