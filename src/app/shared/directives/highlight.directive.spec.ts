@@ -1,34 +1,54 @@
 import { HighlightDirective } from './highlight.directive';
 import { TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
+import { By } from '@angular/platform-browser';
+
+
 
 @Component({
-  selector: 'app-fake',
-  template: `
-    <div appHighLight> </div>
-  `
-}
+
+    selector: 'app-fake',
+    template: `
+        <div appHighlight></div>
+    `
+
+})
 
 class FakeComponent {}
 
-describe('HighlightDirective', () => {
-  let fixture = null;
-  let elementWithDirective = null;
-  let xxx = null;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations [
-          FakeComponent,
-          HighlightDirective, 
-        ]
-      }).compileComponents();
-    fixture = TestBed.createComponent( FakeComponent );
-    $elementWithDirective = elementWithDirective.nativeElement;
-  });
-  
-  it('should create an instance', () => {
-    const directive = new HighlightDirective();
-    expect(directive).toBeTruthy();
-  });
+
+describe('HighlightDirective', () => {
+
+    let fixture = null;
+    let elementWithDirective = null;
+    let $elementWithDirective = null;
+
+    beforeEach(() => {
+
+        TestBed.configureTestingModule({
+            declarations: [
+                FakeComponent,
+                HighlightDirective
+            ]
+        }).compileComponents();
+        fixture = TestBed.createComponent(FakeComponent);
+        elementWithDirective = fixture.debugElement.query(
+            By.directive(HighlightDirective)
+        );
+        $elementWithDirective = elementWithDirective.nativeElement;
+    });
+
+
+
+    it('should add class after mouseover', () => {
+        $elementWithDirective.classList.remove('border-primary');
+        elementWithDirective.triggerEventHandler('mouseover');
+        fixture.detectChanges();
+        expect(
+            $elementWithDirective.classList.contains('border-primary')
+        ).toBeTruthy();
+
+    });
+
 });
