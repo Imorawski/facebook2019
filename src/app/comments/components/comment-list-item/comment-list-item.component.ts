@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { IComment } from '../../../shared/interfaces/comment.interface';
 
 @Component({
-  selector: 'app-comment-list-item',
-  templateUrl: './comment-list-item.component.html',
-  styleUrls: ['./comment-list-item.component.scss']
+    selector: 'app-comment-list-item',
+    templateUrl: './comment-list-item.component.html',
+    styleUrls: ['./comment-list-item.component.scss']
 })
 export class CommentListItemComponent implements OnInit {
 
-  constructor() { }
+    @Input() comment: IComment = null;
 
-  ngOnInit() {
-  }
+    constructor() { }
+
+    ngOnInit() {
+    }
 
 }

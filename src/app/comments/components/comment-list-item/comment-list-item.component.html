@@ -1,1 +1,10 @@
-<p>comment-list-item works!</p>
+<div class="media">
+    <img
+        [src]="comment.author.avatarUrl"
+        class="avatar mr-3"
+        alt=""
+    >
+    <div class="media-body">
+        {{ comment.body }}
+    </div>
+</div>
