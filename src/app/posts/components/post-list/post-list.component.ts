@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import fakePosts from '../../../../fakes/fake-posts';
+import { IPostList } from '../../../shared/interfaces/post-list.interface';
 
 @Component({
     selector: 'app-post-list',
@@ -9,7 +9,7 @@ import fakePosts from '../../../../fakes/fake-posts';
 })
 export class PostListComponent implements OnInit {
 
-    posts = fakePosts;
+    @Input() posts: IPostList = null;
 
     constructor() { }
 
