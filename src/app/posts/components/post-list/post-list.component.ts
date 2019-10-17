@@ -1,22 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
+import fakePosts from '../../../../fakes/fake-posts';
+
 @Component({
-  selector: 'app-post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.scss']
+    selector: 'app-post-list',
+    templateUrl: './post-list.component.html',
+    styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  
-  posts = [
-  { body : ' test 1'},
-  { body : ' test 2'},
-  { body : ' test 12'},
 
-  ];
+    posts = fakePosts;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }
