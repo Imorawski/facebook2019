@@ -7,6 +7,7 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { PostListItemComponent } from './components/post-list-item/post-list-item.component';
 import { SharedModule } from '../shared/shared.module';
 import { PostProfilePageComponent } from './pages/post-profile-page/post-profile-page.component';
+import { CommentsModule } from '../comments/comments.module';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { PostProfilePageComponent } from './pages/post-profile-page/post-profile
         CommonModule,
         PostsRoutingModule,
         SharedModule,
-        HttpClientModule
+        HttpClientModule,
+        CommentsModule
     ]
 })
 export class PostsModule { }
