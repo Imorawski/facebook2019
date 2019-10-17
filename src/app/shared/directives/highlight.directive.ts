@@ -9,13 +9,13 @@ export class HighlightDirective {
   moH () {
     const $el = this.el.nativeElement;
     this.renderer.addClass($el,'border-primary');
-    console.log("mo",$el);
+    //console.log("mo",$el);
   }
   @HostListener('mouseleave')
   mlH  () {
     const $el = this.el.nativeElement;
     this.renderer.removeClass($el,'border-primary');
-    console.log("ml",$el);
+    //console.log("ml",$el);
   }
 
   constructor(

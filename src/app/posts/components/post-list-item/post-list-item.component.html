@@ -10,7 +10,11 @@
             alt
         >
         <h4>{{ post.author.name }}</h4>
-        <p>{{ post.createdTime | myDate }}</p>
+        <p>
+            <a [routerLink]="getPostUrl()">
+                {{ post.createdTime | myDate }}
+            </a>
+        </p>
     </div>
     <img
         [src]="post.images[0]"

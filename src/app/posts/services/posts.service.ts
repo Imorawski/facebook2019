@@ -24,4 +24,16 @@ export class PostsService {
             .toPromise();
     }
 
+    async getPostById(postId: string): Promise<IPost> {
+        // Pobierz wszystkie posty
+        const posts = await this.getPosts();
+
+        // Przefiltruj posty pod kątem postId
+        const post = posts.find((post) => {
+            return (post.id === postId);
+        });
+
+        return post;
+    }
+
 }

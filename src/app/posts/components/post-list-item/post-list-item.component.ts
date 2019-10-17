@@ -16,4 +16,8 @@ export class PostListItemComponent implements OnInit {
     ngOnInit() {
     }
 
+    getPostUrl() {
+        return `/posts/${ this.post.id }`
+    }
+
 }
