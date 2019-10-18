@@ -1,21 +1,45 @@
 <form
     class="m-3"
     (ngSubmit)="submit(commentAddForm)"
-    #commentAddForm
+    #commentAddForm="ngForm"
 >
     <div class="form-group">
         <input
             type="text"
             class="form-control"
-            placeholder="Comment"
+            placeholder="Komentarz"
             [(ngModel)]="comment.body"
             name="body"
+            #body="ngModel"
+            required
+            minlength="3"
         >
     </div>
+
+    <!-- <pre>body.dirty = {{ body.dirty }}</pre> -->
+    <!-- <pre>body.pristine = {{ body.pristine }}</pre> -->
+    <!-- <pre>body.valid = {{ body.valid }}</pre> -->
+    <!-- <pre>body.invalid = {{ body.invalid }}</pre> -->
+    <!-- <pre>body.touched = {{ body.touched }}</pre> -->
+    <!-- <pre>body.untouched = {{ body.untouched }}</pre> -->
+    <!-- <pre>body.errors = {{ body.errors | json }}</pre> -->
+
+    <div class="text-danger">
+        <p *ngIf="body.dirty && body.errors?.minlength">
+            Za mało znaków
+        </p>
+        <p *ngIf="body.dirty && body.errors?.required">
+            Pole wymagane
+        </p>
+    </div>
+
+    <!-- <pre>commentAddForm.invalid = {{ commentAddForm.invalid }}</pre> -->
+
     <button
         type="submit"
         class="btn btn-primary"
+        [disabled]="commentAddForm.invalid"
     >
-        Dodaj
+        Dodaj komentarz
     </button>
 </form>

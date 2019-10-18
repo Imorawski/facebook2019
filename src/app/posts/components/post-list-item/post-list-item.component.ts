@@ -18,11 +18,11 @@ export class PostListItemComponent implements OnInit, OnChanges {
     }
 
     ngOnChanges() {
-        if (this.post) {
-            this.post.comments = [
-                { body: 'asd', author: { avatarUrl: 'https://piecioshka.pl/me.jpg' } }
-            ] as ICommentList;
-        }
+        // if (this.post) {
+        //     this.post.comments = [
+        //         { body: 'asd', author: { avatarUrl: 'https://piecioshka.pl/me.jpg' } }
+        //     ] as ICommentList;
+        // }
     }
 
     getPostUrl() {

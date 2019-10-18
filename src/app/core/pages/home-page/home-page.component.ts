@@ -11,6 +11,7 @@ import { IPostList } from '../../../shared/interfaces/post-list.interface';
 export class HomePageComponent implements OnInit {
 
     posts: IPostList = null;
+    error = null;
 
     constructor(
         private postsService: PostsService
@@ -21,7 +22,20 @@ export class HomePageComponent implements OnInit {
     }
 
     private async setupPosts() {
-        this.posts = await this.postsService.getPosts();
+        try {
+            this.posts = await this.postsService.getPosts();
+            this.error = null;
+            // throw new Error('ciasteczko mi nie smakowało');
+        } catch (reason) {
+            this.posts = [];
+            this.error = reason;
+            // if (localStorage.admin) {
+            //     this.error = reason;
+            // } else {
+            //     this.error = { message: reason.message };
+            // }
+            // console.log(reason);
+        }
     }
 
 }

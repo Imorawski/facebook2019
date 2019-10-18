@@ -1,3 +1,25 @@
-<app-post-list
+<app-loading
+
+    *ngIf="!posts"
+
+></app-loading>
+
+
+
+<app-error-message *ngIf="error">
+
+    Zapytanie "{{ this.error.url }}" do serwera nie powiodło się!
+
+    <!-- {{ this.error.message }} -->
+
+    <!-- <pre>{{ this.error?.stack }}</pre> -->
+
+</app-error-message>
+
+
+
+<app-post-panel
+
     [posts]="posts"
-></app-post-list>
+
+></app-post-panel>

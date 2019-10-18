@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  postsUrl: 'assets/fake-posts.json'
+  postsUrl: 'assets/fake-posts.json',
+  cacheTTL: 1000 * 5
 };
 
 /*
